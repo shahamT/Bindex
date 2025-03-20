@@ -1,0 +1,21 @@
+* {
+box-sizing: border-box;
+margin: 0;
+}
+
+:root {
+    /* colors */
+    --gray-dark: #303745;
+    --gray-medium: #3E4553;
+    --gray-light: #D3D7DA;
+    
+    --light: #ffffff;
+
+    --blue-primary: #3F51B5;
+    --blue-primary-darker: #3444a3;
+    --yellow: #FFC107;
+    --yellow-lighter: #f7cb47;
+
+    --success: #00B894;
+    --fail: #E53935;
+}

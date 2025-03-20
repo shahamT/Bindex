@@ -5,12 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bindex.com</title>
+
+    <!-- css -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/books-table.css">
     <link rel="stylesheet" href="css/side-bar.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/edit-book-modal.css">
     <link rel="stylesheet" href="css/bottom-messages.css">
+    <link rel="stylesheet" href="css/page-layout.css">
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap" rel="stylesheet">
+
 </head>
 
 <body onload="onInit()">
@@ -18,19 +27,22 @@
     <div class="page-layout-grid">
         <header>
             <img class="header-logo" src="img\bindex-logo-white.png" alt="">
-            <button class="txt-btn btn-primary header-btn"></button>
+            <button class="txt-btn btn-primary header-btn">Login</button>
         </header>
 
         <nav class="side-bar">
+            <button class="icon-btn-nav"></button>
+            <button class="icon-btn-nav"></button>
+            <button class="icon-btn-nav"></button>
             <button class="icon-btn-nav"></button>
         </nav>
 
         <main class="content-grid">
             <h2 class="page-header">My Books</h2>
             <div class="action-btns">
-                <button class="icon-btn btn-secondary"></button>
-                <button class="txt-btn btn-secondary"></button>
-                <button class="txt-btn btn-primary"></button>
+                <button class="icon-btn btn-secondary">Icon Sec</button>
+                <button class="txt-btn btn-secondary">txt-secondary</button>
+                <button class="txt-btn btn-primary">txt primary</button>
             </div>
             <table class="data-table">
                 <tr class="table-header">
@@ -45,7 +57,7 @@
             </table>
         </main>
 
-        <div class="side-panel">
+        <div hidden class="side-panel">
             <h3>Book Name</h3>
         </div>
     </div>

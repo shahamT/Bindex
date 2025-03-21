@@ -16,7 +16,7 @@
 }
 
 
-.content-grid {
+.content-grid.table-view{
     padding-block: 3em;
     padding-inline: 3em;
 }

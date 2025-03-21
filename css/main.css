@@ -37,9 +37,8 @@ main {
 
 button {
     border-radius: 50px;
-    border: none;
-    outline-style: solid;
-    outline-width: 0px;
+    border-width: 2px;
+    border-color: transparent;
 
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.40);
     cursor: pointer;
@@ -52,7 +51,7 @@ button:hover {
 
 .txt-btn {
     padding-inline: 1.5em;
-    padding-block: 0.6em;
+    padding-block: 0.5em;
 
     font-family: var(--Poppins);
     font-weight: 700;
@@ -73,8 +72,8 @@ button:hover {
 .btn-secondary {
     color: var(--blue-primary);
     background-color: var(--very-light-blue);
-    outline-width: 2px;
-    outline-color: var(--blue-primary);
+    border-color: var(--blue-primary);
+    border-style: solid;
 }
 
 .btn-secondary:hover {
@@ -82,10 +81,13 @@ button:hover {
 }
 
 .icon-btn {
-    height: 2.7em;
-    width: 2.7em;
+    min-height: 2.7em;
+    min-width: 2.7em;
+    max-height: 2.7em;
+    max-width: 2.7em;
+    padding: 0.5em;
+    fill: var(--blue-primary)
 }
-
 
 .icon-btn-nav {
     height: 40px;

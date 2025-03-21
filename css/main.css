@@ -25,10 +25,10 @@
     --Poppins: 'Poppins', sans-serif;
 }
 
-body {
-    height: 100vh;
+html, body {
+    height: 100dvh;
     font-family: var(--Poppins);
-    overflow: hidden;
+    overflow:hidden;
 }
 
 main {
@@ -96,4 +96,33 @@ button:hover {
 
 .icon-btn-nav:hover {
     background-color: var(--gray-medium-light);
+}
+
+input {
+    height: 2.5em;
+    border-width: 1px;
+padding-inline-start: 1em;
+
+
+    border-radius: 8px;
+    border-color: var(--gray-dark);
+    border-style: solid;
+    font-family: var(--Poppins);
+    font-size: 1em;
+    transition: 0.3s;
+
+}
+
+input:focus{
+    border-style: solid;
+    border-color: var(--blue-primary); 
+    border-width: 2px;
+    outline: none;
+
+}
+
+label {
+    font-weight: 600;
+    font-size: 1em;
+    margin-block-end: 0.2em;
 }

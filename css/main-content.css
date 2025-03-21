@@ -1,7 +1,6 @@
 .main-area-grid {
     display: grid;
     grid-template-columns: 8fr 0; 
-    /* 24em  for sidepanel full width*/
     grid-template-rows: auto 8fr;
     grid-template-areas:
         "content-header side-panel"
@@ -10,8 +9,7 @@
     align-items: start;
     height: 100%;
 
-
-
+    color: var(--gray-dark);
     transition: 0.5s;
 }
 

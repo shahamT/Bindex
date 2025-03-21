@@ -6,7 +6,7 @@ const gBooks = [
         price: 120,
         rate: 4,
         stock: 5,
-        imgUrl: ''
+        imgUrl: 'https://m.media-amazon.com/images/I/71-++hbbERL.jpg'
     },
     {
         id: 'bg4J79',
@@ -15,6 +15,8 @@ const gBooks = [
         price: 10,
         rate: 5,
         stock: 12,
-        imgUrl: ''
+        imgUrl: 'https://m.media-amazon.com/images/I/71-++hbbERL.jpg'
     }
 ]
+
+var gNxtId = 1001

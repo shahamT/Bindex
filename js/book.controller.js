@@ -30,7 +30,7 @@ function renderBooksTable(books) {
                     <div class="table-cell cell4">${(book.rate).toFixed(1)}⭐</div>
                     <div class="table-cell cell5">${book.stock}</div>
                     <div class="table-cell cell6 item-btns">
-                        <button class="txt-btn btn-secondary">Read</button>
+                        <button class="txt-btn btn-secondary" onclick="onViewBtnClick('${book.id}')">View</button>
                         <button class="txt-btn btn-primary" onclick="onUpdateBtnClick('${book.id}')">Edit</button>
                         <button class="icon-btn btn-secondary" onclick="onDeleteBook('${book.id}')"><svg viewBox="0 0 482.428 482.429" xmlns="http://www.w3.org/2000/svg"><g><g><path d="M381.163,57.799h-75.094C302.323,25.316,274.686,0,241.214,0c-33.471,0-61.104,25.315-64.85,57.799h-75.098c-30.39,0-55.111,24.728-55.111,55.117v2.828c0,23.223,14.46,43.1,34.83,51.199v260.369c0,30.39,24.724,55.117,55.112,55.117h210.236c30.389,0,55.111-24.729,55.111-55.117V166.944c20.369-8.1,34.83-27.977,34.83-51.199v-2.828C436.274,82.527,411.551,57.799,381.163,57.799z M241.214,26.139c19.037,0,34.927,13.645,38.443,31.66h-76.879C206.293,39.783,222.184,26.139,241.214,26.139z M375.305,427.312c0,15.978-13,28.979-28.973,28.979H136.096c-15.973,0-28.973-13.002-28.973-28.979V170.861h268.182V427.312z M410.135,115.744c0,15.978-13,28.979-28.973,28.979H101.266c-15.973,0-28.973-13.001-28.973-28.979v-2.828c0-15.978,13-28.979,28.973-28.979h279.896c15.973,0,28.973,13.001,28.973,28.979V115.744z"/><path d="M191.479,388.736V214.433c0-7.225-5.857-13.083-13.083-13.083c-7.225,0-13.083,5.858-13.083,13.083v174.303c0,7.225,5.857,13.083,13.083,13.083C185.621,401.819,191.479,395.961,191.479,388.736z"/><path d="M264.755,388.736V214.433c0-7.225-5.857-13.083-13.083-13.083s-13.083,5.858-13.083,13.083v174.303c0,7.225,5.857,13.083,13.083,13.083S264.755,395.961,264.755,388.736z"/><path d="M338.031,388.736V214.433c0-7.225-5.857-13.083-13.083-13.083c-7.226,0-13.083,5.858-13.083,13.083v174.303c0,7.225,5.857,13.083,13.083,13.083C332.174,401.819,338.031,395.961,338.031,388.736z"/></g></g></svg>
                         </button>
@@ -61,7 +61,7 @@ function onUpdateBtnClick(bookId) {
     renderUpdateBook(book)
 }
 
-function OpenSidePanel(action) {
+function OpenSidePanel() {
     elGrid = document.querySelector(`.main-area-grid`)
     elGrid.style.gridTemplateColumns = "8fr 24em"
 }
@@ -73,6 +73,8 @@ function onCloseSidePanel() {
 
 function renderAddBook() {
     const elPanel = document.querySelector(`.side-panel`)
+    elPanel.classList.remove(`no-act-btn`)
+
     elPanel.innerHTML = `
                 <button class="close-panel-btn" onclick="onCloseSidePanel()"><svg fill="none" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg"> <path d="M566.65 533.317L699.983 399.983M699.983 399.983L566.65 266.65M699.983 399.983H299.984M433.317 699.983H206.676C169.34 699.983 150.671 699.983 136.41 692.717C123.866 686.327 113.668 676.127 107.276 663.583C100.01 649.323 100.01 630.653 100.01 593.317V206.65C100.01 169.314 100.01 150.645 107.276 136.384C113.668 123.84 123.866 113.642 136.41 107.25C150.671 99.9836 169.34 99.9836 206.676 99.9836H433.317" stroke-linecap="round" stroke-linejoin="round" stroke-width="66.6667" /></svg> </button>
 
@@ -120,6 +122,8 @@ function renderAddBook() {
 
 function renderUpdateBook(book) {
     const elPanel = document.querySelector(`.side-panel`)
+    elPanel.classList.remove(`no-act-btn`)
+
     elPanel.innerHTML = `
                 <button class="close-panel-btn" onclick="onCloseSidePanel()"><svg fill="none" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg"> <path d="M566.65 533.317L699.983 399.983M699.983 399.983L566.65 266.65M699.983 399.983H299.984M433.317 699.983H206.676C169.34 699.983 150.671 699.983 136.41 692.717C123.866 686.327 113.668 676.127 107.276 663.583C100.01 649.323 100.01 630.653 100.01 593.317V206.65C100.01 169.314 100.01 150.645 107.276 136.384C113.668 123.84 123.866 113.642 136.41 107.25C150.671 99.9836 169.34 99.9836 206.676 99.9836H433.317" stroke-linecap="round" stroke-linejoin="round" stroke-width="66.6667" /></svg> </button>
 
@@ -200,4 +204,46 @@ function onUpdateBook(bookId) {
 function onDeleteBook(bookId) {
     deleteBook(bookId)
     renderBooks()
+}
+
+function onViewBtnClick(bookId){
+    const book =getBookById(bookId)
+    renderViewBook(book)
+    OpenSidePanel()
+}
+
+function renderViewBook(book){
+    const elPanel = document.querySelector(`.side-panel`)
+    elPanel.classList.add(`no-act-btn`)
+
+    elPanel.innerHTML =`
+                <button class="close-panel-btn" onclick="onCloseSidePanel()"><svg fill="none" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg"><path d="M566.65 533.317L699.983 399.983M699.983 399.983L566.65 266.65M699.983 399.983H299.984M433.317 699.983H206.676C169.34 699.983 150.671 699.983 136.41 692.717C123.866 686.327 113.668 676.127 107.276 663.583C100.01 649.323 100.01 630.653 100.01 593.317V206.65C100.01 169.314 100.01 150.645 107.276 136.384C113.668 123.84 123.866 113.642 136.41 107.25C150.671 99.9836 169.34 99.9836 206.676 99.9836H433.317" stroke-linecap="round" stroke-linejoin="round" stroke-width="66.6667" /></svg> </button>
+
+                <div class="content-grid-wraper">
+                    <h3>${book.title}</h3>
+                    <button class="txt-btn btn-primary" onclick="onUpdateBtnClick('${book.id}')">Edit</button>
+
+                    <img class="book-cover" src="${book.imgUrl}" alt="Book-cover">
+
+                    <div class="detail-group">
+                        <label>Author</label>
+                        <p>${book.author}</p>
+                    </div>
+
+                    <div class="detail-group">
+                        <label>Price</label>
+                        <p>${book.price}</p>
+                    </div>
+
+                    <div class="detail-group">
+                        <label>Rate</label>
+                        <p>${book.rate}</p>
+                    </div>
+
+                    <div class="detail-group">
+                        <label>Stock</label>
+                        <p>${book.stock}</p>
+                    </div>
+
+                </div>`
 }

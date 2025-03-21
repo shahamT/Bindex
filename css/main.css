@@ -17,6 +17,7 @@
     --blue-primary-darker: #26368f;
     --yellow: #FFC107;
     --yellow-lighter: #f7cb47;
+    --very-light-blue: #E7EBF3;
 
     --success: #00B894;
     --fail: #E53935;
@@ -27,6 +28,7 @@
 body {
     height: 100vh;
     font-family: var(--Poppins);
+    overflow: hidden;
 }
 
 main {
@@ -35,21 +37,27 @@ main {
 
 button {
     border-radius: 50px;
+    border: none;
+    outline-style: solid;
+    outline-width: 0px;
 
-    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.40);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.40);
     cursor: pointer;
     transition: background-color 0.3s;
-    border-style: solid;
-    border-width: 0px;
+}
+
+button:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.40);
 }
 
 .txt-btn {
     padding-inline: 1.5em;
-    padding-block: 0.5em;
+    padding-block: 0.6em;
 
     font-family: var(--Poppins);
     font-weight: 700;
-    font-size: 16px;
+    font-size: 1em;
+    line-height: 1em;
 
 }
 
@@ -64,14 +72,20 @@ button {
 
 .btn-secondary {
     color: var(--blue-primary);
-    background-color: var(--gray-light);
-    border-width: 2px;
-    border-color: var(--blue-primary);
+    background-color: var(--very-light-blue);
+    outline-width: 2px;
+    outline-color: var(--blue-primary);
 }
 
 .btn-secondary:hover {
-    background-color: var(--gray-light-lighter);
+    background-color: var(--light);
 }
+
+.icon-btn {
+    height: 2.7em;
+    width: 2.7em;
+}
+
 
 .icon-btn-nav {
     height: 40px;

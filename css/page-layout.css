@@ -11,3 +11,10 @@
     height: 100%;
 }
 
+.main-area-grid{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: start;
+  justify-content: stretch;
+
+}

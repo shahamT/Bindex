@@ -13,6 +13,9 @@ header{
     color: var(--gray-dark);
     background-color: var(--yellow);
 }
+.header-btn:hover{
+    background-color: var(--yellow-lighter);
+}
 
 .header-logo{
     height: 40%;

@@ -1,0 +1,36 @@
+.main-area-grid {
+    display: grid;
+    grid-template-columns: 8fr 0; 
+    /* 24em  for sidepanel full width*/
+    grid-template-rows: auto 8fr;
+    grid-template-areas:
+        "content-header side-panel"
+        "content side-panel"
+    ;
+    align-items: start;
+    height: 100%;
+
+
+
+    transition: 0.5s;
+}
+
+
+.content-grid {
+    padding-block: 3em;
+    padding-inline: 3em;
+}
+
+.page-header {
+    grid-area: content-header;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-block-end: 2em;
+}
+
+.page-header button:nth-child(2) {
+    margin-inline-end: auto;
+}

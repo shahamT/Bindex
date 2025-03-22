@@ -202,21 +202,20 @@ function onUpdateBook(bookId) {
 }
 
 function onDeleteBook(bookId) {
-    deleteBook(bookId)
-    renderBooks()
+    renderConfirmDelete(bookId)
 }
 
-function onViewBtnClick(bookId){
-    const book =getBookById(bookId)
+function onViewBtnClick(bookId) {
+    const book = getBookById(bookId)
     renderViewBook(book)
     OpenSidePanel()
 }
 
-function renderViewBook(book){
+function renderViewBook(book) {
     const elPanel = document.querySelector(`.side-panel`)
     elPanel.classList.add(`no-act-btn`)
 
-    elPanel.innerHTML =`
+    elPanel.innerHTML = `
                 <button class="close-panel-btn" onclick="onCloseSidePanel()"><svg fill="none" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg"><path d="M566.65 533.317L699.983 399.983M699.983 399.983L566.65 266.65M699.983 399.983H299.984M433.317 699.983H206.676C169.34 699.983 150.671 699.983 136.41 692.717C123.866 686.327 113.668 676.127 107.276 663.583C100.01 649.323 100.01 630.653 100.01 593.317V206.65C100.01 169.314 100.01 150.645 107.276 136.384C113.668 123.84 123.866 113.642 136.41 107.25C150.671 99.9836 169.34 99.9836 206.676 99.9836H433.317" stroke-linecap="round" stroke-linejoin="round" stroke-width="66.6667" /></svg> </button>
 
                 <div class="content-grid-wraper">
@@ -246,4 +245,42 @@ function renderViewBook(book){
                     </div>
 
                 </div>`
+}
+
+function renderConfirmDelete(bookId) {
+    var elBackdrop = document.querySelector(`.backdrop`)
+    elBackdrop.innerHTML = `   
+            <div class="modal">
+                <p>Are you sure you wish to delete this book? </p>
+                <div class="btns-container">
+                    <button class="txt-btn btn-secondary" onclick="onCloseModal()">CANCEL</button>
+                    <button class="txt-btn btn-primary warning" onclick="onDeleteConfirm('${bookId}')">DELETE</button>
+                </div>
+            </div>`
+    elBackdrop.hidden = false
+    elBackdrop.offsetHeight
+    elBackdrop.classList.add(`bd-apperance`)
+}
+
+function onDeleteConfirm(bookId) {
+    deleteBook(bookId)
+    renderBooks()
+
+    var elBackdrop = document.querySelector(`.backdrop`)
+    elBackdrop.classList.remove(`bd-apperance`)
+    setTimeout(() => {
+        elBackdrop.hidden = true
+        elBackdrop.innerHTML = ``
+    }, 500)
+
+}
+
+function onCloseModal() {
+    var elBackdrop = document.querySelector(`.backdrop`)
+
+    elBackdrop.classList.remove(`bd-apperance`)
+    setTimeout(() => {
+        elBackdrop.hidden = true
+        elBackdrop.innerHTML = ``
+    }, 500)
 }

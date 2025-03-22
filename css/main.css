@@ -21,14 +21,16 @@
 
     --success: #00B894;
     --fail: #E53935;
+    --fail-darker: #bb302e;
 
     --Poppins: 'Poppins', sans-serif;
 }
 
-html, body {
+html,
+body {
     height: 100dvh;
     font-family: var(--Poppins);
-    overflow:hidden;
+    overflow: hidden;
 }
 
 main {
@@ -80,6 +82,13 @@ button:hover {
     background-color: var(--light);
 }
 
+button.warning {
+    background-color: var(--fail);
+}
+button.warning:hover {
+    background-color: var(--fail-darker);
+}
+
 .icon-btn {
     min-height: 2.7em;
     min-width: 2.7em;
@@ -101,7 +110,7 @@ button:hover {
 input {
     height: 2.5em;
     border-width: 1px;
-padding-inline-start: 1em;
+    padding-inline-start: 1em;
 
 
     border-radius: 8px;
@@ -113,9 +122,9 @@ padding-inline-start: 1em;
 
 }
 
-input:focus{
+input:focus {
     border-style: solid;
-    border-color: var(--blue-primary); 
+    border-color: var(--blue-primary);
     border-width: 2px;
     outline: none;
 
@@ -126,3 +135,4 @@ label {
     font-size: 1em;
     margin-block-end: 0.2em;
 }
+

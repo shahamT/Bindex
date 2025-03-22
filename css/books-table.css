@@ -7,6 +7,8 @@
     display: flex;
     flex-direction: column;
     gap: 0.8em;
+
+    padding-block-end: 1em;
     overflow-y: auto;
 }
 
@@ -20,6 +22,7 @@
 
     background-color: var(--light);
     border-radius: 50px;
+    cursor: pointer;
     transition: background-color 0.2s;
     transition: box-shadow 0.2s;
 
@@ -69,3 +72,4 @@
     
     overflow: visible;
 }
+

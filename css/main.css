@@ -136,3 +136,21 @@ label {
     margin-block-end: 0.2em;
 }
 
+
+.empty-state-container{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 1em;
+
+padding-block: 3em;
+}
+
+.empty-state-img{
+    width: 14em;
+}
+
+.empty-state-container p{
+   font-size: 1.2em; 
+}

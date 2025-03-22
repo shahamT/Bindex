@@ -1,0 +1,37 @@
+.pop-up-msg {
+    position: absolute;
+    bottom: -1em;
+    left: 50%;
+    transform: translate(-50%);
+
+    min-width: 40em;
+    max-width: 70vh;
+    padding-block: 0.5em;
+
+    border-radius: 100px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1em;
+    color: var(--light);
+    box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.30);
+
+    
+    opacity: 0;
+    transition: 0.4s;
+
+}
+
+.pop-up-msg.success {
+    background-color: var(--success);
+}
+
+.pop-up-msg.fail {
+    background-color: var(--fail);
+}
+
+
+.pop-up-msg.apperance {
+    opacity: 1;
+    z-index: 10;
+    bottom: 2em;
+}

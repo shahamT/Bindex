@@ -1,0 +1,59 @@
+.sort-and-filters-container {
+    display: grid;
+    grid-template-columns: auto repeat(5, minmax(1em, 1fr));
+    grid-template-areas:
+        "search sort dir min-rate max-price reset"
+    ;
+    align-items: center;
+    gap: 1em;
+
+    border: none;
+    padding-block-end: 1em;
+}
+
+
+.field-group {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.field-group.vertical{
+    flex-direction: column;
+    gap: 0;
+    align-items: start;
+}
+
+.field-group.search {
+    grid-area: search;
+    width: 21em;
+}
+
+.field-group.sort {
+    grid-area: sort;
+}
+
+.field-group.sort-dir {
+    grid-area: dir;
+}
+
+.field-group.rate {
+    grid-area: min-rate;
+}
+
+.field-group.price {
+    grid-area: max-price;
+}
+
+.sort-and-filters-container .reset {
+    grid-area: reset;
+}
+
+input[name="search"] {
+    width: 22em;
+}
+
+input[type="range"]{
+    width: 7em;
+}

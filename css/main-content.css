@@ -26,7 +26,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    padding-block-end: 2em;
+    padding-block-end: 0.5em;
 }
 
 .page-header div:nth-child(2) {

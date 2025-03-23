@@ -38,7 +38,6 @@ function getBooks(options) {
     var books = gBooks
 console.log("options: ", options)
     //filter
-
     const searchStr = options.filterBy.search ? options.filterBy.search.toLowerCase() : null
     const minRate = options.filterBy.minRate
     const maxPrice = options.filterBy.maxPrice
@@ -88,7 +87,7 @@ function addBook(data) {
 }
 
 function getBookById(id) {
-    book = gBooks.find(book => book.id === id)
+    const book = gBooks.find(book => book.id === id)
     return book
 }
 

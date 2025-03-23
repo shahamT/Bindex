@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/side-panel.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/pop-up-msg.css">
+    <link rel="stylesheet" href="css/sort-and-filters.css">
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,42 +60,45 @@
 
                     <button class="txt-btn btn-primary" onclick="onAddBookBtnClick()">Add Book</button>
                 </div>
-                <fieldset>
-                    <div class="filter-fields">
-                        <div class="field-group" oninput="onFilterChange()">
-                            <label for="search">Search</label>
-                            <input type="text" name="search" placeholder="Search for book title or author name" onchange="onMinRateChange()">
-                        </div>
-                        <div class="field-group" onchange="onFilterChange()">
-                            <label for="min-rate">Minimum Rate</label>
-                            <input type="range" name="min-rate" min="0" max="5" value="1" onchange="onMinRateChange()">
-                            <span>3</span>
-                        </div>
-                        <div class="field-group" onchange="onFilterChange()">
-                            <label for="max-price">Maximum Price</label>
-                            <input type="range" name="max-price" min="0" max="999" value="999"  onchange="onMaxPriceChange()">
-                            <span>3</span>
-                        </div>
-                    </div>
-                    <div class="sort-fields" >
-                        <div class="field-group">
-                            <label for="sort-by">Sort By</label>
-                            <select name="sort-by" onchange="onSortChange()">
-                                <option value="">Select</option>
-                                <option value="title">Book Title</option>
-                                <option value="author">Author Name</option>
-                                <option value="rate">Rating</option>
-                                <option value="price">Price</option>
-                                <option value="stock">Stock</option>
-                            </select>
-                        </div>
-                        <div class="field-group">
-                            <label for="sort-direction">Ascending</label>
-                            <input type="checkbox" name="sort-dir" onchange="onSortChange()">
-                        </div>
-                    </div>
                 
-                </fieldset>
+                <div class="sort-and-filters-container">
+
+                    <div class="field-group search" oninput="onFilterChange()">
+                        <input type="text" name="search" placeholder="Search for book title or author name..."
+                            onchange="onMinRateChange()">
+                    </div>
+
+                    <div class="field-group rate vertical" onchange="onFilterChange()">
+                        <label for="min-rate">Rate (from)</label>
+                        <input type="range" name="min-rate" min="0" max="5" value="1" onchange="onMinRateChange()">
+                        <span>3</span>
+                    </div>
+
+                    <div class="field-group price vertical" onchange="onFilterChange()">
+                        <label for="max-price">Price (up to)</label>
+                        <input type="range" name="max-price" min="0" max="999" value="999"
+                            onchange="onMaxPriceChange()">
+                        <span>3</span>
+                    </div>
+
+                    <div class="field-group sort">
+                        <select name="sort-by" onchange="onSortChange()">
+                            <option value="">Sort By</option>
+                            <option value="title">Book Title</option>
+                            <option value="author">Author Name</option>
+                            <option value="rate">Rating</option>
+                            <option value="price">Price</option>
+                            <option value="stock">Stock</option>
+                        </select>
+                    </div>
+
+                    <div class="field-group sort-dir">
+                        <label for="sort-direction">Ascending</label>
+                        <input type="checkbox" name="sort-dir" onchange="onSortChange()">
+                    </div>
+
+                    <button class="txt-btn btn-secondary reset" onclick="onResetFilters()">Reset</button>
+                </div>
 
                 <div class="data-table-container">
                 </div>

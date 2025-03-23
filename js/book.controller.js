@@ -5,6 +5,7 @@ const gQueryOptions = {
     page: { page: 1, pSize: 10 }
 }
 
+var gLayout = 'table'
 
 function onInit() {
     renderBooks()
@@ -12,7 +13,12 @@ function onInit() {
 
 function renderBooks() {
     const books = getBooks(gQueryOptions)
-    renderBooksTable(books)
+    if (gLayout === 'table') {
+        renderBooksTable(books)
+    } else if (gLayout === 'cards') {
+        renderBooksCards(books)
+    }
+
 }
 
 function renderBooksTable(books) {
@@ -77,7 +83,7 @@ function renderBooksCards(books) {
 
     if (books.length > 0) {
         var booksStrHTMLs = books.map(book => {
-            var bookHTML = `<div class="book-card ${book.id}" onclick="onViewBookClick()" onmouseover="onBookCardMouseOver(this ,'${book.id}')" onmouseout="onBookCardMouseOut(this,'${book.id}')">
+            var bookHTML = `<div class="book-card ${book.id}" onclick="onViewBookClick('${book.id}')" onmouseover="onBookCardMouseOver(this ,'${book.id}')" onmouseout="onBookCardMouseOut(this,'${book.id}')">
                                 <div class="card-content-wraper">
                                     <p class="book-title">${book.title}</p>
                                     <p class="book-author">${book.author}</p>
@@ -93,8 +99,8 @@ function renderBooksCards(books) {
                                     </div>
 
                                     <div class="card-btns">
-                                        <button class="txt-btn btn-primary" onclick="onUpdateBtnClick('',event)">Edit</button>
-                                        <button class="icon-btn btn-secondary" onclick="onDeleteBook('',event)"><svg viewBox="0 0 482.428 482.429" xmlns="http://www.w3.org/2000/svg"> <path d="M381.163,57.799h-75.094C302.323,25.316,274.686,0,241.214,0c-33.471,0-61.104,25.315-64.85,57.799h-75.098c-30.39,0-55.111,24.728-55.111,55.117v2.828c0,23.223,14.46,43.1,34.83,51.199v260.369c0,30.39,24.724,55.117,55.112,55.117h210.236c30.389,0,55.111-24.729,55.111-55.117V166.944c20.369-8.1,34.83-27.977,34.83-51.199v-2.828C436.274,82.527,411.551,57.799,381.163,57.799z M241.214,26.139c19.037,0,34.927,13.645,38.443,31.66h-76.879C206.293,39.783,222.184,26.139,241.214,26.139z M375.305,427.312c0,15.978-13,28.979-28.973,28.979H136.096c-15.973,0-28.973-13.002-28.973-28.979V170.861h268.182V427.312z M410.135,115.744c0,15.978-13,28.979-28.973,28.979H101.266c-15.973,0-28.973-13.001-28.973-28.979v-2.828c0-15.978,13-28.979,28.973-28.979h279.896c15.973,0,28.973,13.001,28.973,28.979V115.744z" /><path d="M191.479,388.736V214.433c0-7.225-5.857-13.083-13.083-13.083c-7.225,0-13.083,5.858-13.083,13.083v174.303c0,7.225,5.857,13.083,13.083,13.083C185.621,401.819,191.479,395.961,191.479,388.736z" /><path d="M264.755,388.736V214.433c0-7.225-5.857-13.083-13.083-13.083s-13.083,5.858-13.083,13.083v174.303c0,7.225,5.857,13.083,13.083,13.083S264.755,395.961,264.755,388.736z" /><path d="M338.031,388.736V214.433c0-7.225-5.857-13.083-13.083-13.083c-7.226,0-13.083,5.858-13.083,13.083v174.303c0,7.225,5.857,13.083,13.083,13.083C332.174,401.819,338.031,395.961,338.031,388.736z" /></svg></button>
+                                        <button class="txt-btn btn-primary" onclick="onUpdateBtnClick('${book.id}',event)">Edit</button>
+                                        <button class="icon-btn btn-secondary" onclick="onDeleteBook('${book.id}',event)"><svg viewBox="0 0 482.428 482.429" xmlns="http://www.w3.org/2000/svg"> <path d="M381.163,57.799h-75.094C302.323,25.316,274.686,0,241.214,0c-33.471,0-61.104,25.315-64.85,57.799h-75.098c-30.39,0-55.111,24.728-55.111,55.117v2.828c0,23.223,14.46,43.1,34.83,51.199v260.369c0,30.39,24.724,55.117,55.112,55.117h210.236c30.389,0,55.111-24.729,55.111-55.117V166.944c20.369-8.1,34.83-27.977,34.83-51.199v-2.828C436.274,82.527,411.551,57.799,381.163,57.799z M241.214,26.139c19.037,0,34.927,13.645,38.443,31.66h-76.879C206.293,39.783,222.184,26.139,241.214,26.139z M375.305,427.312c0,15.978-13,28.979-28.973,28.979H136.096c-15.973,0-28.973-13.002-28.973-28.979V170.861h268.182V427.312z M410.135,115.744c0,15.978-13,28.979-28.973,28.979H101.266c-15.973,0-28.973-13.001-28.973-28.979v-2.828c0-15.978,13-28.979,28.973-28.979h279.896c15.973,0,28.973,13.001,28.973,28.979V115.744z" /><path d="M191.479,388.736V214.433c0-7.225-5.857-13.083-13.083-13.083c-7.225,0-13.083,5.858-13.083,13.083v174.303c0,7.225,5.857,13.083,13.083,13.083C185.621,401.819,191.479,395.961,191.479,388.736z" /><path d="M264.755,388.736V214.433c0-7.225-5.857-13.083-13.083-13.083s-13.083,5.858-13.083,13.083v174.303c0,7.225,5.857,13.083,13.083,13.083S264.755,395.961,264.755,388.736z" /><path d="M338.031,388.736V214.433c0-7.225-5.857-13.083-13.083-13.083c-7.226,0-13.083,5.858-13.083,13.083v174.303c0,7.225,5.857,13.083,13.083,13.083C332.174,401.819,338.031,395.961,338.031,388.736z" /></svg></button>
                                     </div>
                                 </div>
                             </div>`
@@ -389,8 +395,8 @@ function onLayoutListBtnClick() {
     elCardsGrid.innerHTML = ``
     elCardsGrid.hidden = true
 
-    const books = getBooks()
-    renderBooksTable(books)
+    gLayout = 'table'
+    renderBooks()
 }
 
 function onLayoutCardsBtnClick() {
@@ -398,8 +404,8 @@ function onLayoutCardsBtnClick() {
     elListGrid.innerHTML = ``
     elListGrid.hidden = true
 
-    const books = getBooks()
-    renderBooksCards(books)
+    gLayout = 'cards'
+    renderBooks()
 }
 
 
@@ -432,9 +438,9 @@ function onBookCardMouseOut(elCard, id) {
 }
 
 function onFilterChange() {
-    const searchVal = document.querySelector(`.filter-fields input[name="search"]`).value
-    const minRateVal = document.querySelector(`.filter-fields input[name="min-rate"]`).value
-    const maxPriceVal = document.querySelector(`.filter-fields input[name="max-price"]`).value
+    const searchVal = document.querySelector(`input[name="search"]`).value
+    const minRateVal = document.querySelector(`input[name="min-rate"]`).value
+    const maxPriceVal = document.querySelector(`input[name="max-price"]`).value
 
     gQueryOptions.filterBy.search = searchVal
     gQueryOptions.filterBy.minRate = minRateVal
@@ -453,11 +459,30 @@ function onMinRateChange() {
 }
 
 function onSortChange() {
-    const sortBy = document.querySelector(`.sort-fields select[name="sort-by"]`).value
-    var sortDir = document.querySelector(`.sort-fields input[name="sort-dir"]`).checked
+    const sortBy = document.querySelector(`select[name="sort-by"]`).value
+    var sortDir = document.querySelector(`input[name="sort-dir"]`).checked
     sortDir = sortDir === true ? -1 : 1
 
     gQueryOptions.sortBy.field = sortBy
     gQueryOptions.sortBy.dir = sortDir
     renderBooks()
+}
+
+function onResetFilters() {
+    gQueryOptions.filterBy.search = null
+    gQueryOptions.filterBy.minRate = 1
+    gQueryOptions.filterBy.maxPrice = 999
+    gQueryOptions.sortBy.field = null
+    gQueryOptions.sortBy.dir = 1
+    resetFiltersElements()
+    renderBooks()
+}
+
+function resetFiltersElements() {
+    document.querySelector(`input[name="search"]`).value = ''
+    document.querySelector(`input[name="min-rate"]`).value = 1
+    document.querySelector(`input[name="max-price"]`).value = 999
+
+    document.querySelector(`select[name="sort-by"]`).value = ''
+    document.querySelector(`input[name="sort-dir"]`).checked = false
 }

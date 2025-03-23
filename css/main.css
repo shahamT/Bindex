@@ -37,6 +37,11 @@ main {
     background-color: var(--gray-light);
 }
 
+fieldset {
+    margin-inline: 0em;
+    padding-inline: 0em;
+}
+
 button {
     border-radius: 50px;
     border-width: 2px;
@@ -85,6 +90,7 @@ button:hover {
 button.warning {
     background-color: var(--fail);
 }
+
 button.warning:hover {
     background-color: var(--fail-darker);
 }
@@ -107,10 +113,11 @@ button.warning:hover {
     background-color: var(--gray-medium-light);
 }
 
-input {
+input,
+select {
     height: 2.5em;
     border-width: 1px;
-    padding-inline-start: 1em;
+    padding-inline: 1em;
 
 
     border-radius: 8px;
@@ -122,12 +129,17 @@ input {
 
 }
 
-input:focus {
-    border-style: solid;
+input:focus,
+select:focus {
+    /* border-style: solid;
     border-color: var(--blue-primary);
-    border-width: 2px;
+    border-width: 2px; */
     outline: none;
 
+}
+
+select {
+    cursor: pointer;
 }
 
 label {
@@ -137,20 +149,29 @@ label {
 }
 
 
-.empty-state-container{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 1em;
+.empty-state-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
 
-padding-block: 3em;
+    padding-block: 3em;
 }
 
-.empty-state-img{
+.empty-state-img {
     width: 14em;
 }
 
-.empty-state-container p{
-   font-size: 1.2em; 
+.empty-state-container p {
+    font-size: 1.2em;
+}
+
+input[type="checkbox"]{
+    width: 1.1em;
+    background-color: var(--blue-primary);
+}
+
+input[type="range"]::-webkit-slider-runnable-track{
+  cursor:pointer;
 }

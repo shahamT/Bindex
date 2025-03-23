@@ -9,6 +9,7 @@ var gLayout = 'table'
 
 function onInit() {
     renderBooks()
+    resetFiltersElements()
 }
 
 function renderBooks() {
@@ -88,7 +89,7 @@ function renderBooksCards(books) {
                                     <p class="book-title">${book.title}</p>
                                     <p class="book-author">${book.author}</p>
                                     <img class="book-cover" src="${book.imgUrl}"
-                                        alt="book cover" onerror="this.src='img/no-cover-default.webp'">>
+                                        alt="book cover" onerror="this.src='img/no-cover-default.webp'">
 
                                     <div class="book-attrb-container">
                                         <p class="book-price">${book.price}$</p>
@@ -451,11 +452,15 @@ function onFilterChange() {
 }
 
 function onMaxPriceChange() {
-
+    const maxPriceVal = document.querySelector(`input[name="max-price"]`).value
+    const elValSpan = document.querySelector('.field-group.price span')
+    elValSpan.innerText = maxPriceVal
 }
 
 function onMinRateChange() {
-
+    const minRateVal = document.querySelector(`input[name="min-rate"]`).value
+    const elValSpan = document.querySelector('.field-group.rate span')
+    elValSpan.innerText = minRateVal
 }
 
 function onSortChange() {
@@ -475,14 +480,18 @@ function onResetFilters() {
     gQueryOptions.sortBy.field = null
     gQueryOptions.sortBy.dir = 1
     resetFiltersElements()
+    console.log(gQueryOptions)
     renderBooks()
 }
 
 function resetFiltersElements() {
     document.querySelector(`input[name="search"]`).value = ''
-    document.querySelector(`input[name="min-rate"]`).value = 1
-    document.querySelector(`input[name="max-price"]`).value = 999
+    document.querySelector(`input[name="min-rate"]`).value = 0
+    document.querySelector('.field-group.rate span').innerText = 0
+    document.querySelector(`input[name="max-price"]`).value = null
+    document.querySelector('.field-group.price span').innerText = 999
 
     document.querySelector(`select[name="sort-by"]`).value = ''
     document.querySelector(`input[name="sort-dir"]`).checked = false
+
 }

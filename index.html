@@ -55,10 +55,11 @@
                 <div class="page-header">
                     <h2 class="page-title">My Books</h2>
 
+                    <button class="txt-btn btn-primary" onclick="onAddBookBtnClick()">Add Book</button>
+                    
                     <div class="books-layout-btn-container">
                     </div>
 
-                    <button class="txt-btn btn-primary" onclick="onAddBookBtnClick()">Add Book</button>
                 </div>
                 
                 <div class="sort-and-filters-container">
@@ -70,14 +71,14 @@
 
                     <div class="field-group rate vertical" onchange="onFilterChange()">
                         <label for="min-rate">Rate (from)</label>
-                        <input type="range" name="min-rate" min="0" max="5" value="1" onchange="onMinRateChange()">
+                        <input type="range" name="min-rate" min="0" max="5" value="1" oninput="onMinRateChange()">
                         <span>3</span>
                     </div>
 
                     <div class="field-group price vertical" onchange="onFilterChange()">
                         <label for="max-price">Price (up to)</label>
                         <input type="range" name="max-price" min="0" max="999" value="999"
-                            onchange="onMaxPriceChange()">
+                            oninput="onMaxPriceChange()">
                         <span>3</span>
                     </div>
 
@@ -93,7 +94,7 @@
                     </div>
 
                     <div class="field-group sort-dir">
-                        <label for="sort-direction">Ascending</label>
+                        <label for="sort-direction">A-Z</label>
                         <input type="checkbox" name="sort-dir" onchange="onSortChange()">
                     </div>
 

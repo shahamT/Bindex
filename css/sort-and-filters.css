@@ -1,6 +1,6 @@
 .sort-and-filters-container {
     display: grid;
-    grid-template-columns: auto repeat(5, minmax(1em, 1fr));
+    grid-template-columns: auto 10em 5em 8em 8em 1fr;
     grid-template-areas:
         "search sort dir min-rate max-price reset"
     ;
@@ -48,10 +48,13 @@
 
 .sort-and-filters-container .reset {
     grid-area: reset;
+    justify-self: start;
 }
 
 input[name="search"] {
-    width: 22em;
+    flex-basis: 16em;
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
 input[type="range"]{

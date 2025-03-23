@@ -23,12 +23,12 @@
     grid-area: content-header;
 
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: start;
+    justify-content: start;
     gap: 12px;
     padding-block-end: 0.5em;
 }
 
 .page-header div:nth-child(2) {
-    margin-inline-end: auto;
+    /* margin-inline-end: auto; */
 }

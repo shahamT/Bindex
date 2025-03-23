@@ -57,9 +57,40 @@
                     <div class="books-layout-btn-container">
                     </div>
 
-                    <button class="txt-btn btn-secondary">txt-secondary</button>
                     <button class="txt-btn btn-primary" onclick="onAddBookBtnClick()">Add Book</button>
                 </div>
+                <fieldset>
+                    <div class="filter-fields">
+                        <div class="field-group">
+                            <label for="min-rate">Minimum Rate</label>
+                            <input type="range" name="min-rate" onchange="onMinRateChange()">
+                            <span>3</span>
+                        </div>
+                        <div class="field-group">
+                            <label for="max-price">Maximum Price</label>
+                            <input type="range" name="max-price" onchange="onMaxPriceChange()">
+                            <span>3</span>
+                        </div>
+                    </div>
+                    <div class="sort-fields" onchange="onSortChange()">
+                        <div class="field-group">
+                            <label for="sort-by">Sort By</label>
+                            <select name="sort-by" id="">
+                                <option value="">Select</option>
+                                <option value="title">Book Title</option>
+                                <option value="author">Author Name</option>
+                                <option value="rating">Rating</option>
+                                <option value="price">Price</option>
+                                <option value="stock">Stock</option>
+                            </select>
+                        </div>
+                        <div class="field-group">
+                            <label for="sort-direction">Ascending</label>
+                            <input type="checkbox" name="sort-direction">
+                        </div>
+                    </div>
+                
+                </fieldset>
 
                 <div class="data-table-container">
                 </div>
@@ -84,6 +115,7 @@
 
     <script src="js/services/book.model.js"></script>
     <script src="js/services/book.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
     <script src="js/book.controller.js"></script>
 </body>
 

@@ -8,7 +8,17 @@ function getBooks() {
     return gBooks
 }
 
-function addBook(book) {
+function addBook(data) {
+    const book = {
+        id: 'bg' + gNxtId++,
+        title: data.title,
+        author: data.author,
+        price: +data.price,
+        rate: +data.rate,
+        stock: +data.stock,
+        imgUrl: data.imgUrl
+    }
+    
     gBooks.push(book)
 }
 

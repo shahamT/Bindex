@@ -29,6 +29,6 @@
     padding-block-end: 2em;
 }
 
-.page-header button:nth-child(2) {
+.page-header div:nth-child(2) {
     margin-inline-end: auto;
 }

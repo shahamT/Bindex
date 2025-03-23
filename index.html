@@ -9,6 +9,7 @@
     <!-- css -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/books-table.css">
+    <link rel="stylesheet" href="css/books-cards.css">
     <link rel="stylesheet" href="css/side-bar.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/edit-book-modal.css">
@@ -52,25 +53,18 @@
             <div class="content-grid table-view">
                 <div class="page-header">
                     <h2 class="page-title">My Books</h2>
-                    <button class="icon-btn btn-secondary">i</button>
+
+                    <div class="books-layout-btn-container">
+                    </div>
+
                     <button class="txt-btn btn-secondary">txt-secondary</button>
                     <button class="txt-btn btn-primary" onclick="onAddBookBtnClick()">Add Book</button>
                 </div>
 
                 <div class="data-table-container">
+                </div>
 
-                    <div class="table-row table-header">
-                        <div class="table-cell cell1">Book Name</div>
-                        <div class="table-cell cell2">Author</div>
-                        <div class="table-cell cell3">Price</div>
-                        <div class="table-cell cell4">Rate</div>
-                        <div class="table-cell cell5">Stock</div>
-                        <div class="table-cell cell6"></div>
-                    </div>
-
-                    <div class="table-items-container">
-
-                    </div>
+                <div class="data-cards-container">
 
                 </div>
 
@@ -88,9 +82,9 @@
 
     </div>
 
-    <script src="js/book.controller.js"></script>
-    <script src="js/services/book.service.js"></script>
     <script src="js/services/book.model.js"></script>
+    <script src="js/services/book.service.js"></script>
+    <script src="js/book.controller.js"></script>
 </body>
 
 </html>

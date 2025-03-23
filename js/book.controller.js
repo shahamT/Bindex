@@ -1,10 +1,17 @@
 
+const gQueryOptions = {
+    filterBy: { search: null, minRate: null, maxPrice: null },
+    sortBy: { field: null, dir: 1 },
+    page: { page: 1, pSize: 10 }
+}
+
+
 function onInit() {
     renderBooks()
 }
 
 function renderBooks() {
-    const books = getBooks()
+    const books = getBooks(gQueryOptions)
     renderBooksTable(books)
 }
 
@@ -50,10 +57,10 @@ function renderBooksTable(books) {
 
     strHTML += `</div>`
     elTableGrid.innerHTML = strHTML
-    
+
     const elCardsGrid = document.querySelector(`.data-cards-container`)
     elCardsGrid.hidden = true
-    elTableGrid.hidden=false
+    elTableGrid.hidden = false
 
 
     const elLayoutBtnContainer = document.querySelector(`.books-layout-btn-container`)
@@ -65,7 +72,7 @@ function renderBooksTable(books) {
 }
 
 function renderBooksCards(books) {
-   const elCardsGrid = document.querySelector(`.data-cards-container`)
+    const elCardsGrid = document.querySelector(`.data-cards-container`)
     var strHTML = ``
 
     if (books.length > 0) {
@@ -109,7 +116,7 @@ function renderBooksCards(books) {
     elCardsGrid.innerHTML = strHTML
     const elListGrid = document.querySelector(`.data-table-container`)
     elListGrid.hidden = true
-    elCardsGrid.hidden=false
+    elCardsGrid.hidden = false
 
     const elLayoutBtnContainer = document.querySelector(`.books-layout-btn-container`)
     elLayoutBtnContainer.innerHTML = `<button class="icon-btn btn-secondary" onClick="onLayoutListBtnClick()">
@@ -247,7 +254,7 @@ function onAddBook() {
         stock: +document.querySelector(`.side-panel #stock`).value,
         imgUrl: document.querySelector(`.side-panel #img`).value
     }
-    
+
     addBook(data)
     onCloseSidePanel()
     renderBooks()
@@ -401,13 +408,13 @@ function onBookCardMouseOver(elCard, id) {
     const elBtnsContainer = document.querySelector(`.${id} .card-btns`)
 
     elCard.classList.add(`upper-layer`)
-        elAtribContainer.classList.add(`flex`)
-        elBtnsContainer.classList.add(`flex`)
-        elAtribContainer.offsetHeight
-        elBtnsContainer.offsetHeight
-        elAtribContainer.classList.add(`visible`)
-        elBtnsContainer.classList.add(`visible`)
-  
+    elAtribContainer.classList.add(`flex`)
+    elBtnsContainer.classList.add(`flex`)
+    elAtribContainer.offsetHeight
+    elBtnsContainer.offsetHeight
+    elAtribContainer.classList.add(`visible`)
+    elBtnsContainer.classList.add(`visible`)
+
 
 
 }
@@ -418,8 +425,39 @@ function onBookCardMouseOut(elCard, id) {
 
 
     elCard.classList.remove(`upper-layer`)
-        elAtribContainer.classList.remove(`flex`, `visible`)
-        elBtnsContainer.classList.remove(`flex`, `visible`)
- 
+    elAtribContainer.classList.remove(`flex`, `visible`)
+    elBtnsContainer.classList.remove(`flex`, `visible`)
 
+
+}
+
+function onFilterChange() {
+    const searchVal = document.querySelector(`.filter-fields input[name="search"]`).value
+    const minRateVal = document.querySelector(`.filter-fields input[name="min-rate"]`).value
+    const maxPriceVal = document.querySelector(`.filter-fields input[name="max-price"]`).value
+
+    gQueryOptions.filterBy.search = searchVal
+    gQueryOptions.filterBy.minRate = minRateVal
+    gQueryOptions.filterBy.maxPrice = maxPriceVal
+
+    renderBooks()
+
+}
+
+function onMaxPriceChange() {
+
+}
+
+function onMinRateChange() {
+
+}
+
+function onSortChange() {
+    const sortBy = document.querySelector(`.sort-fields select[name="sort-by"]`).value
+    var sortDir = document.querySelector(`.sort-fields input[name="sort-dir"]`).checked
+    sortDir = sortDir === true ? -1 : 1
+
+    gQueryOptions.sortBy.field = sortBy
+    gQueryOptions.sortBy.dir = sortDir
+    renderBooks()
 }

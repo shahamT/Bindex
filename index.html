@@ -61,32 +61,36 @@
                 </div>
                 <fieldset>
                     <div class="filter-fields">
-                        <div class="field-group">
+                        <div class="field-group" oninput="onFilterChange()">
+                            <label for="search">Search</label>
+                            <input type="text" name="search" placeholder="Search for book title or author name" onchange="onMinRateChange()">
+                        </div>
+                        <div class="field-group" onchange="onFilterChange()">
                             <label for="min-rate">Minimum Rate</label>
-                            <input type="range" name="min-rate" onchange="onMinRateChange()">
+                            <input type="range" name="min-rate" min="0" max="5" value="1" onchange="onMinRateChange()">
                             <span>3</span>
                         </div>
-                        <div class="field-group">
+                        <div class="field-group" onchange="onFilterChange()">
                             <label for="max-price">Maximum Price</label>
-                            <input type="range" name="max-price" onchange="onMaxPriceChange()">
+                            <input type="range" name="max-price" min="0" max="999" value="999"  onchange="onMaxPriceChange()">
                             <span>3</span>
                         </div>
                     </div>
-                    <div class="sort-fields" onchange="onSortChange()">
+                    <div class="sort-fields" >
                         <div class="field-group">
                             <label for="sort-by">Sort By</label>
-                            <select name="sort-by" id="">
+                            <select name="sort-by" onchange="onSortChange()">
                                 <option value="">Select</option>
                                 <option value="title">Book Title</option>
                                 <option value="author">Author Name</option>
-                                <option value="rating">Rating</option>
+                                <option value="rate">Rating</option>
                                 <option value="price">Price</option>
                                 <option value="stock">Stock</option>
                             </select>
                         </div>
                         <div class="field-group">
                             <label for="sort-direction">Ascending</label>
-                            <input type="checkbox" name="sort-direction">
+                            <input type="checkbox" name="sort-dir" onchange="onSortChange()">
                         </div>
                     </div>
                 
@@ -113,9 +117,8 @@
 
     </div>
 
-    <script src="js/services/book.model.js"></script>
-    <script src="js/services/book.service.js"></script>
     <script src="js/services/storage.service.js"></script>
+    <script src="js/services/book.service.js"></script>
     <script src="js/book.controller.js"></script>
 </body>
 
